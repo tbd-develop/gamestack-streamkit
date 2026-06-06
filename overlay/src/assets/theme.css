@@ -1,0 +1,53 @@
+/*
+ * GameStack overlay — DEFAULT THEME (design tokens).
+ *
+ * Every colour, font, border, shadow and radius the overlays use is declared here as a
+ * CSS custom property. The overlay components reference these tokens (never literal values),
+ * so a theme is nothing more than a file that re-declares a subset of them on :root.
+ *
+ * Accents are expressed as space-separated RGB triplets (e.g. `124 92 255`) so a theme can
+ * re-tint the whole palette by changing two lines — every border/pill/rating tint is derived
+ * from them via `rgb(var(--gs-accent-rgb) / <alpha>)`.
+ *
+ * To create your own theme, DON'T edit this file. Copy public/themes/_template.css, change the
+ * values you care about, and load it with `?theme=<name>` on the OBS browser-source URL.
+ * Full guide: docs/streamkit-overlay-theming.md
+ */
+:root {
+  /* ── Typography ─────────────────────────────────────────────────────────── */
+  --gs-font: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ── Brand accents (space-separated RGB so themes can re-tint everything) ── */
+  --gs-accent-rgb: 124 92 255; /* primary  — purple #7c5cff */
+  --gs-accent2-rgb: 34 211 238; /* secondary — cyan   #22d3ee */
+
+  /* ── Text ───────────────────────────────────────────────────────────────── */
+  --gs-text: #f2f4fb; /* primary foreground (titles, body)        */
+  --gs-text-muted: #aab2c0; /* descriptions                             */
+  --gs-text-dim: #9aa3b2; /* genre chips, captions, small print       */
+  --gs-text-rating: #d7dce6; /* rating number                            */
+  --gs-accent-soft: #c9bcff; /* light accent text (page no., platform)   */
+  --gs-eyebrow: rgb(var(--gs-accent2-rgb)); /* section labels ("Now Playing") */
+
+  /* ── Panel — the card / grid surface ────────────────────────────────────── */
+  --gs-panel-bg: linear-gradient(135deg, rgba(18, 22, 33, 0.92), rgba(11, 14, 20, 0.92));
+  --gs-panel-border: rgb(var(--gs-accent-rgb) / 0.35);
+  --gs-panel-radius: 20px;
+  --gs-panel-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  --gs-panel-blur: 8px;
+
+  /* ── Pills & chips ──────────────────────────────────────────────────────── */
+  --gs-pill-bg: rgba(255, 255, 255, 0.06);
+  --gs-pill-border: rgba(255, 255, 255, 0.08);
+  --gs-chip-bg: rgba(255, 255, 255, 0.04);
+  --gs-accent-pill-bg: rgb(var(--gs-accent-rgb) / 0.18);
+  --gs-accent-pill-border: rgb(var(--gs-accent-rgb) / 0.4);
+
+  /* ── Game covers ────────────────────────────────────────────────────────── */
+  --gs-cover-bg: #11151f; /* letterbox behind cover art / fallback bg */
+  --gs-cover-fallback: rgb(var(--gs-accent-rgb) / 0.55); /* first-letter glyph colour */
+
+  /* ── Rating bar ─────────────────────────────────────────────────────────── */
+  --gs-rating-track: rgba(255, 255, 255, 0.08);
+  --gs-rating-fill: linear-gradient(90deg, rgb(var(--gs-accent-rgb)), rgb(var(--gs-accent2-rgb)));
+}

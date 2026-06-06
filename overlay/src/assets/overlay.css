@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* OBS browser sources need a transparent background. */
+html,
+body,
+#app {
+  margin: 0;
+  height: 100%;
+  background: transparent;
+}
+
+body {
+  font-family: var(--gs-font);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}

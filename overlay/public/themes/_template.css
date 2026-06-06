@@ -1,0 +1,53 @@
+/*
+ * Overlay theme TEMPLATE — copy this file to `<your-theme>.css` and load it with
+ * `?theme=<your-theme>` on the OBS browser-source URL (the `?` goes BEFORE the `#`):
+ *
+ *   http://localhost:8420/?theme=<your-theme>#/stage
+ *
+ * A theme only needs the tokens it changes — delete any line below to fall back to the
+ * default. The two `*-rgb` accents drive every border/pill/rating tint, so changing just
+ * those two lines re-skins the whole overlay. Values shown here are the DEFAULTS.
+ *
+ * Full reference: docs/streamkit-overlay-theming.md
+ */
+:root {
+  /* Typography. Want a custom font? @import it at the very TOP of this file, e.g.
+     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&display=swap');
+     then set the family below. */
+  --gs-font: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Brand accents as space-separated RGB triplets ("R G B", no commas). */
+  --gs-accent-rgb: 124 92 255; /* primary   */
+  --gs-accent2-rgb: 34 211 238; /* secondary */
+
+  /* Text */
+  --gs-text: #f2f4fb; /* titles + body   */
+  --gs-text-muted: #aab2c0; /* descriptions    */
+  --gs-text-dim: #9aa3b2; /* chips, captions */
+  --gs-text-rating: #d7dce6; /* rating number   */
+  --gs-accent-soft: #c9bcff; /* light accent text */
+  --gs-eyebrow: rgb(var(--gs-accent2-rgb)); /* section labels */
+
+  /* Panel — the card / grid surface. --gs-panel-bg accepts any background (flat colour,
+     gradient, even url(...) — though remote images may not load inside OBS). */
+  --gs-panel-bg: linear-gradient(135deg, rgba(18, 22, 33, 0.92), rgba(11, 14, 20, 0.92));
+  --gs-panel-border: rgb(var(--gs-accent-rgb) / 0.35);
+  --gs-panel-radius: 20px;
+  --gs-panel-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  --gs-panel-blur: 8px;
+
+  /* Pills & chips */
+  --gs-pill-bg: rgba(255, 255, 255, 0.06);
+  --gs-pill-border: rgba(255, 255, 255, 0.08);
+  --gs-chip-bg: rgba(255, 255, 255, 0.04);
+  --gs-accent-pill-bg: rgb(var(--gs-accent-rgb) / 0.18);
+  --gs-accent-pill-border: rgb(var(--gs-accent-rgb) / 0.4);
+
+  /* Game covers */
+  --gs-cover-bg: #11151f;
+  --gs-cover-fallback: rgb(var(--gs-accent-rgb) / 0.55);
+
+  /* Rating bar */
+  --gs-rating-track: rgba(255, 255, 255, 0.08);
+  --gs-rating-fill: linear-gradient(90deg, rgb(var(--gs-accent-rgb)), rgb(var(--gs-accent2-rgb)));
+}

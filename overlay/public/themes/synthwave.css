@@ -1,0 +1,9 @@
+/*
+ * "synthwave" — the minimal-effort theme. It changes ONLY the two accent triplets; every
+ * border, pill, rating bar, page number and fallback glyph re-tints automatically because
+ * they're all derived from these. This is the whole file. Load with `?theme=synthwave`.
+ */
+:root {
+  --gs-accent-rgb: 255 71 179; /* hot pink   */
+  --gs-accent2-rgb: 255 184 76; /* warm amber */
+}
