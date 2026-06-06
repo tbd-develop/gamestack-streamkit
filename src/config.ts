@@ -6,8 +6,10 @@ import { z } from 'zod'
  * if all three Twitch vars are present, the bot is enabled; otherwise it runs API+overlay only.
  */
 const schema = z.object({
-  GAMESTACK_API_BASE: z.string().url(),
-  GAMESTACK_BACKEND_ORIGIN: z.string().url(),
+  // Default to production GameStack so a fresh checkout "just works" with only an API key.
+  // Override these locally (e.g. in .env.development) to point at a dev instance.
+  GAMESTACK_API_BASE: z.string().url().default('https://gamestack.us/api/public/v1'),
+  GAMESTACK_BACKEND_ORIGIN: z.string().url().default('https://gamestack.us'),
   GAMESTACK_API_KEY: z.string().min(1, 'GAMESTACK_API_KEY is required'),
 
   STREAMKIT_PORT: z.coerce.number().int().positive().default(8420),

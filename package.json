@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "concurrently -n bot,overlay -c blue,magenta \"npm:dev:bot\" \"npm:dev:overlay\"",
-    "dev:bot": "node --watch --env-file-if-exists=.env --import tsx src/index.ts",
+    "dev:bot": "node --watch --env-file-if-exists=.env --env-file-if-exists=.env.development --import tsx src/index.ts",
     "dev:overlay": "vite",
     "start": "node --env-file-if-exists=.env --import tsx src/index.ts",
     "build": "vite build",
