@@ -3,7 +3,11 @@
  * border, pill, rating bar, page number and fallback glyph re-tints automatically because
  * they're all derived from these. This is the whole file. Load with `?theme=synthwave`.
  */
+@import url('https://fonts.googleapis.com/css2?family=Science+Gothic:wght@500;700&display=swap');
+
 :root {
+  --gs-font: 'Science Gothic', system-ui, sans-serif;
+
   --gs-accent-rgb: 255 71 179; /* hot pink   */
   --gs-accent2-rgb: 255 184 76; /* warm amber */
 }
