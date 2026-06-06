@@ -122,7 +122,8 @@ shadows, accents and more. Drop a CSS file in `overlay/public/themes/` and selec
 http://localhost:8420/?theme=synthwave#/stage
 ```
 
-Two example themes (`synthwave`, `daylight`) are included. Full token reference and a step-by-step
+Three example themes are included: `synthwave`, `daylight`, and `gamestack` (the on-brand palette
+lifted from [gamestack.us](https://gamestack.us)). Full token reference and a step-by-step
 guide: **[docs/streamkit-overlay-theming.md](docs/streamkit-overlay-theming.md)**.
 
 ---

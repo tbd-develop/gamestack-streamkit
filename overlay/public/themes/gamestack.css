@@ -1,0 +1,35 @@
+/*
+ * "gamestack" — the on-brand theme, lifted straight from gamestack.us. A warm paper-white
+ * panel with near-black text and the site's signature indigo → violet accent gradient (the
+ * same pairing used on the GameStack logo and the "Plus what it's worth" hero). Distinct from
+ * daylight, which is a *cool* slate light theme — this one uses GameStack's warm neutrals.
+ * Load with `?theme=gamestack`.
+ *
+ * Colours are the real tokens from the live site:
+ *   --primary #6366f1 · accent violet #8b5cf6 · bg #f8f7f5 · text #0f0f10 · muted #6b6966
+ */
+:root {
+  /* Indigo primary + violet secondary — the GameStack gradient. */
+  --gs-accent-rgb: 99 102 241; /* indigo #6366f1 */
+  --gs-accent2-rgb: 139 92 246; /* violet #8b5cf6 */
+
+  /* Warm paper surface + near-black text (matches gamestack.us light mode). */
+  --gs-panel-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 247, 245, 0.95));
+  --gs-panel-border: rgb(var(--gs-accent-rgb) / 0.3);
+  --gs-panel-shadow: 0 24px 60px rgba(26, 26, 28, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.04) inset;
+
+  --gs-text: #0f0f10;
+  --gs-text-muted: #6b6966;
+  --gs-text-dim: #8a8784;
+  --gs-text-rating: #1a1a1c;
+  --gs-accent-soft: #4f46e5; /* indigo-600, readable on the light panel */
+  --gs-eyebrow: rgb(var(--gs-accent2-rgb)); /* violet section labels */
+
+  /* Warm neutral pills & chips (gamestack.us uses warm greys, not cool slate). */
+  --gs-pill-bg: rgba(26, 26, 28, 0.04);
+  --gs-pill-border: rgba(0, 0, 0, 0.08);
+  --gs-chip-bg: rgba(26, 26, 28, 0.03);
+
+  --gs-cover-bg: #e8e6e3;
+  --gs-rating-track: rgba(0, 0, 0, 0.08);
+}

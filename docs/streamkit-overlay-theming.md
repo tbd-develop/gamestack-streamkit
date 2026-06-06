@@ -133,12 +133,15 @@ Format is `R G B`, **space-separated, no commas, no `rgb()`**.
 
 ## Examples
 
-Two working themes ship in `overlay/public/themes/`:
+Three working themes ship in `overlay/public/themes/`:
 
 - **`synthwave.css`** — the minimal case. Changes only the two accent triplets; the whole
   overlay re-tints. Load with `?theme=synthwave`.
 - **`daylight.css`** — a full re-skin: light frosted panel, dark text, a custom web font.
   Load with `?theme=daylight`.
+- **`gamestack.css`** — the on-brand theme, lifted straight from [gamestack.us](https://gamestack.us):
+  warm paper-white panel, near-black text, and the site's indigo → violet accent gradient. Load with
+  `?theme=gamestack`.
 
 Open them side by side with `_template.css` to see the spread from "two lines" to "everything".
 
