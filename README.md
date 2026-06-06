@@ -31,11 +31,35 @@ viewer `!commands`, queries the GameStack **public API**, and drives **OBS brows
 cd streamkit
 npm install
 cp .env.example .env        # then fill in GAMESTACK_API_KEY (Twitch creds optional)
-npm run dev
+npm start                   # runs against PRODUCTION (gamestack.us) by default
 ```
 
-That's enough to get overlays working. On boot StreamKit does a `listShelves()` smoke test against
-the API and logs the result, so you can confirm connectivity before wiring up Twitch or OBS.
+The API key is the **only** thing you need to set — the API URLs default to production
+(`gamestack.us`) in code, so a fresh checkout works out of the box. On boot StreamKit does a
+`listShelves()` smoke test against the API and logs the result, so you can confirm connectivity
+before wiring up Twitch or OBS.
+
+### Pointing at dev vs production
+
+Targeting is controlled by which env file is loaded — you don't edit URLs to switch:
+
+| Command | Loads | Targets |
+|---|---|---|
+| `npm start` | `.env` only | **Production** (`gamestack.us`) — the code defaults |
+| `npm run dev` | `.env` + `.env.development` | **Your local/dev instance** (live reload) |
+
+To develop against a local GameStack, put your overrides in **`.env.development`** (gitignored — it
+won't ship to anyone checking out the repo):
+
+```bash
+# .env.development
+GAMESTACK_API_BASE=http://localhost:5259/api/public/v1
+GAMESTACK_BACKEND_ORIGIN=http://localhost:5259
+GAMESTACK_API_KEY=gs_dev_...
+```
+
+`npm run dev` layers this on top of `.env`, so these values win. `npm start` ignores it and stays on
+production. Anyone else just sets `GAMESTACK_API_KEY` in `.env` and gets production automatically.
 
 ---
 
