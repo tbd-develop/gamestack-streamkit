@@ -6,10 +6,16 @@ defineProps<{ game: GameView }>()
 </script>
 
 <template>
-  <div class="tile">
+  <div class="tile" :class="{ 'is-completed': game.isCompleted }">
     <div class="cover">
       <img v-if="game.coverImageUrl" :src="game.coverImageUrl" :alt="game.title" />
       <div v-else class="fallback">{{ game.title.charAt(0) }}</div>
+      <div v-if="game.isCompleted" class="check" aria-label="Completed" role="img">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
     </div>
     <div class="caption">
       <div class="title">{{ game.title }}</div>
@@ -24,6 +30,7 @@ defineProps<{ game: GameView }>()
   color: var(--gs-text);
 }
 .cover {
+  position: relative;
   width: 140px;
   height: 187px;
   border-radius: 10px;
@@ -36,6 +43,27 @@ defineProps<{ game: GameView }>()
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* ── Completed treatment: dim + desaturate the cover, overlay a large check ── */
+.is-completed .cover img,
+.is-completed .cover .fallback {
+  filter: grayscale(0.7) brightness(0.5);
+}
+.check {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--gs-text);
+}
+.check svg {
+  width: 64px;
+  height: 64px;
+  padding: 12px;
+  border-radius: 999px;
+  background: rgb(var(--gs-accent-rgb) / 0.85);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 .fallback {
   width: 100%;
@@ -59,6 +87,9 @@ defineProps<{ game: GameView }>()
 }
 .platform {
   font-size: 12px;
+  color: var(--gs-text-dim);
+}
+.is-completed .title {
   color: var(--gs-text-dim);
 }
 </style>

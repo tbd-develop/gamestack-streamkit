@@ -20,6 +20,8 @@ export interface PublicGameDto {
   rating: number | null // 0–100 (IGDB)
   /** IGDB slug for a "find out more" link. Optional — present once the backend exposes it. */
   igdbSlug?: string | null
+  /** True once the player has finished the game — overlay greys the cover and shows a check. */
+  isCompleted?: boolean
 }
 
 export interface PublicShelfDto {

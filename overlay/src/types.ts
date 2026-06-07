@@ -12,6 +12,8 @@ export interface GameView {
   releaseYear: number | null
   rating: number | null // 0–100
   igdbSlug?: string | null
+  /** True once the player has finished the game — overlay greys the cover and shows a check. */
+  isCompleted?: boolean
 }
 
 export type OverlayEvent =
